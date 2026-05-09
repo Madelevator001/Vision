@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+  
+  --color-hw-bg: #0A0A0B;
+  --color-hw-card: #151619;
+  --color-hw-sidebar: #0F0F11;
+  --color-hw-accent: #00FF00;
+  --color-hw-text: #FFFFFF;
+  --color-hw-muted: #8E9299;
+  --color-hw-border: #24262B;
+  --color-hw-danger: #FF4444;
+}
+
+@layer base {
+  body {
+    @apply bg-hw-bg text-hw-text font-sans selection:bg-hw-accent/20 selection:text-hw-accent;
+  }
+}
+
+/* Technical UI patterns */
+.scan-line {
+  background: linear-gradient(to bottom, transparent, var(--color-hw-accent), transparent);
+  height: 2px;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.data-grid {
+  background-image: 
+    linear-gradient(to right, var(--color-hw-border) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--color-hw-border) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+.radial-track {
+  border: 1px dashed var(--color-hw-muted);
+  border-radius: 50%;
+}
+
+.is-analyzing .trigger-icon {
+  background-color: var(--color-hw-danger);
+  box-shadow: 0 0 10px rgba(255, 68, 68, 0.4);
+}
+
+.mono-time {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 1px;
+}
+
+.status-label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--color-hw-muted);
+}
